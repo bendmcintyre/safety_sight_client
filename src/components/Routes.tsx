@@ -4,8 +4,9 @@ import Login from './authentication/LoginForm';
 import Register from './authentication/RegisterForm';
 import InspectionHistory from './inspection/InspectionHistory';
 import InspectionForm from './inspection/InspectionForm';
-import InspectionTypeManagement from './inspection_type_management/InspectionTypeManagement';
-import UserManagement from './user_management/UserManagement';
+import ManageInspections from './manage_inspections/ManageInspections';
+import ManageUsers from './manage_users/ManageUsers';
+import Contact from './support/Contact';
 
 const RoutesComponent: React.FC = () => {
   return (
@@ -14,8 +15,9 @@ const RoutesComponent: React.FC = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/inspection-form" element={<InspectionForm />} />
       <Route path="/inspection-history" element={<InspectionHistory />} />
-      <Route path="/inspection-type-management" element={<InspectionTypeManagement />} />
-      <Route path="/user-management" element={<UserManagement />} />
+      <Route path="/manage-inspections" element={<ManageInspections />} />
+      <Route path="/manage-users" element={<ManageUsers />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }
