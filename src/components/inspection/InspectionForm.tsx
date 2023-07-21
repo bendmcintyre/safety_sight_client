@@ -1,8 +1,29 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import 'tailwindcss/tailwind.css';
 
+interface InspectionData {
+  name: string;
+  lift: string;
+  hours: string;
+  date: string;
+  tires: string;
+  horn: string;
+  battery: string;
+  controls: string;
+  brakes: string;
+  steering: string;
+  hydraulics: string;
+  overheadGuard: string;
+  charger: string;
+  fallArrest: string;
+  loadPlateDisplayed: string;
+  operatorsManualPresent: string;
+  cleanForklift: string;
+  deficienciesPresent: string;
+}
+
 const InspectionForm = () => {
-  const [inspectionData, setInspectionData] = useState({
+  const [inspectionData, setInspectionData] = useState<InspectionData>({
     name: '',
     lift: '',
     hours: '',
@@ -23,27 +44,94 @@ const InspectionForm = () => {
     deficienciesPresent: ''
   });
 
+  const [passClicked, setPassClicked] = useState<Record<string, boolean>>({});
+  const [failClicked, setFailClicked] = useState<Record<string, boolean>>({});
+
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setInspectionData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+
   const handlePassFailClick = (question: string, value: string) => {
-    handleChange({ target: { name: question, value } } as ChangeEvent<HTMLInputElement>);
+    setInspectionData((prevData) => ({ ...prevData, [question]: value }));
+
+    // Update button clicks for the current question
+    setPassClicked((prevClicked) => ({ ...prevClicked, [question]: value === 'Pass' }));
+    setFailClicked((prevClicked) => ({ ...prevClicked, [question]: value === 'Fail' }));
   };
+
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    // Here you'd call your inspection service with the inspection data
-    // inspectionService.create(inspectionData);
+
+    // Check if any field is empty
+    for (const key in inspectionData) {
+      if (inspectionData[key as keyof InspectionData] === '') {
+        alert('Please fill out all fields before submitting.');
+        return;
+      }
+    }
+
+    // Check if all pass/fail questions are selected
+    for (const question of [
+      'Tires',
+      'Horn',
+      'Battery',
+      'Controls',
+      'Brakes',
+      'Steering',
+      'Hydraulics',
+      'Overhead Guard',
+      'Charger',
+      'Fall Arrest',
+      'Load Plate Displayed',
+      'Operators Manual Present',
+      'Clean Forklift'
+    ]) {
+      if (inspectionData[question as keyof InspectionData] !== 'Pass' && inspectionData[question as keyof InspectionData] !== 'Fail') {
+        alert('Please select "Pass" or "Fail" for all inspection questions.');
+        return;
+      }
+    }
+
+    // Save the inspection data to localStorage
+    const submittedInspections = JSON.parse(localStorage.getItem('inspections') || '[]');
+    submittedInspections.push(inspectionData);
+    localStorage.setItem('inspections', JSON.stringify(submittedInspections));
+
+    // Reset the form after submission
+    setInspectionData({
+      name: '',
+      lift: '',
+      hours: '',
+      date: '',
+      tires: '',
+      horn: '',
+      battery: '',
+      controls: '',
+      brakes: '',
+      steering: '',
+      hydraulics: '',
+      overheadGuard: '',
+      charger: '',
+      fallArrest: '',
+      loadPlateDisplayed: '',
+      operatorsManualPresent: '',
+      cleanForklift: '',
+      deficienciesPresent: ''
+    });
+
+    // Reset the button clicks
+    setPassClicked({});
+    setFailClicked({});
   };
 
   return (
     <div className="p-4">
       <h2 className="text-lg font-bold mb-4">New Inspection</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Inspection Data */}
-        <div className="grid grid-cols-2 gap-4 mb-4">
+      <form onSubmit={(event) => handleSubmit(event)}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block mb-2">Name:</label>
             <input
@@ -88,10 +176,10 @@ const InspectionForm = () => {
               onChange={handleChange}
             />
           </div>
+          {/* ... Repeat for other input fields (tires, horn, battery, etc.) ... */}
         </div>
 
-        {/* Inspection Questions */}
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           {[
             'Tires',
             'Horn',
@@ -112,14 +200,18 @@ const InspectionForm = () => {
               <div className="flex items-center space-x-2">
                 <button
                   type="button"
-                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className={`${
+                    passClicked[question] ? 'bg-green-700' : 'bg-green-500'
+                  } hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                   onClick={() => handlePassFailClick(question, 'Pass')}
                 >
                   Pass
                 </button>
                 <button
                   type="button"
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className={`${
+                    failClicked[question] ? 'bg-red-700' : 'bg-red-500'
+                  } hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                   onClick={() => handlePassFailClick(question, 'Fail')}
                 >
                   Fail
@@ -129,7 +221,6 @@ const InspectionForm = () => {
           ))}
         </div>
 
-        {/* Deficiencies Present */}
         <div>
           <label className="block mb-2">Deficiencies Present:</label>
           <textarea
@@ -142,7 +233,6 @@ const InspectionForm = () => {
           />
         </div>
 
-        {/* Submit Button */}
         <div>
           <button
             type="submit"
