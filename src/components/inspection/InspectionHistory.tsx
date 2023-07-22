@@ -33,10 +33,10 @@ const InspectionHistory = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h2 className="text-lg font-bold mb-4">Inspection History</h2>
+    <div className="bg-background  p-4">
+      <h2 className="text-primary text-lg font-bold mb-4">Inspection History</h2>
       {inspections.length === 0 ? (
-        <p>No inspections submitted yet.</p>
+        <p className="text-primary">No inspections submitted yet.</p>
       ) : (
         <ul>
           {inspections.map((inspection, index) => (

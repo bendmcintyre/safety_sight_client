@@ -35,14 +35,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
+    <div className="bg-background flex flex-col justify-center items-center h-screen bg-gray-100">
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-secondary shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-primary text-sm font-bold mb-2"
             htmlFor="name"
           >
             Name
@@ -58,7 +58,7 @@ const RegisterForm = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-primary text-sm font-bold mb-2"
             htmlFor="username"
           >
             Username
@@ -74,7 +74,7 @@ const RegisterForm = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-primary text-sm font-bold mb-2"
             htmlFor="email"
           >
             Email
@@ -92,7 +92,7 @@ const RegisterForm = () => {
         </div>
         <div className="mb-6">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-primary text-sm font-bold mb-2"
             htmlFor="password"
           >
             Password
@@ -108,7 +108,7 @@ const RegisterForm = () => {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Sign Up

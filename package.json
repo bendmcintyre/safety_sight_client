@@ -41,6 +41,8 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-router-dom": "^5.3.3",
+    "file-loader": "^6.2.0",
     "react-scripts": "^5.0.1"
+    
   }
 }

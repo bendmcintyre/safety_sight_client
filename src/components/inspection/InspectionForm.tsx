@@ -128,12 +128,12 @@ const InspectionForm = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-lg font-bold mb-4">New Inspection</h2>
+    <div className="bg-background p-4">
+      <h2 className="text-primary  text-lg font-bold mb-4">New Inspection</h2>
       <form onSubmit={(event) => handleSubmit(event)}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
-            <label className="block mb-2">Name:</label>
+            <label className="text-primary block mb-2">Name:</label>
             <input
               type="text"
               name="name"
@@ -144,7 +144,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="block mb-2">Lift:</label>
+            <label className="text-primary block mb-2">Lift:</label>
             <input
               type="text"
               name="lift"
@@ -155,7 +155,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="block mb-2">Hours:</label>
+            <label className="text-primary block mb-2">Hours:</label>
             <input
               type="text"
               name="hours"
@@ -166,7 +166,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="block mb-2">Date:</label>
+            <label className="text-primary block mb-2">Date:</label>
             <input
               type="date"
               name="date"
@@ -201,8 +201,8 @@ const InspectionForm = () => {
                 <button
                   type="button"
                   className={`${
-                    passClicked[question] ? 'bg-green-700' : 'bg-green-500'
-                  } hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                    passClicked[question] ? 'bg-pass2' : 'bg-pass1'
+                  } hover:bg-passhover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                   onClick={() => handlePassFailClick(question, 'Pass')}
                 >
                   Pass
@@ -210,8 +210,8 @@ const InspectionForm = () => {
                 <button
                   type="button"
                   className={`${
-                    failClicked[question] ? 'bg-red-700' : 'bg-red-500'
-                  } hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                    failClicked[question] ? 'bg-fail2' : 'bg-fail2'
+                  } hover:bg-failhover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
                   onClick={() => handlePassFailClick(question, 'Fail')}
                 >
                   Fail
@@ -222,7 +222,7 @@ const InspectionForm = () => {
         </div>
 
         <div>
-          <label className="block mb-2">Deficiencies Present:</label>
+          <label className="text-primary block mb-2">Deficiencies Present:</label>
           <textarea
             name="deficienciesPresent"
             className="block w-full border rounded p-2"
@@ -236,7 +236,7 @@ const InspectionForm = () => {
         <div>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-submit1 hover:bg-submit2 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Submit
           </button>
