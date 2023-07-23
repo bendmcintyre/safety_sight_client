@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'tailwindcss/tailwind.css';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -119,4 +118,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export {RegisterForm} ;

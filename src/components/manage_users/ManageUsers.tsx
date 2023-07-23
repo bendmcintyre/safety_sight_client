@@ -1,5 +1,4 @@
 import React from 'react';
-import 'tailwindcss/tailwind.css';
 
 const ManageUsers = () => {
   return (
@@ -11,4 +10,4 @@ const ManageUsers = () => {
   );
 };
 
-export default ManageUsers;
+export {ManageUsers};

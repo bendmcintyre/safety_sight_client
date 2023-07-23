@@ -55,4 +55,4 @@ const ForgotPasswordForm = () => {
   );
 };
 
-export default ForgotPasswordForm;
+export {ForgotPasswordForm};

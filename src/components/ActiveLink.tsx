@@ -17,4 +17,4 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({ to, children, className }) => {
   );
 }
 
-export default ActiveLink;
+export { ActiveLink };
