@@ -184,7 +184,6 @@ const InspectionForm = () => {
               onChange={handleChange}
             />
           </div>
-          {/* ... Repeat for other input fields (tires, horn, battery, etc.) ... */}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
