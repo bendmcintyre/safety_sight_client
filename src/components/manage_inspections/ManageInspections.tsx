@@ -1,5 +1,4 @@
 import React from 'react';
-import 'tailwindcss/tailwind.css';
 
 const ManageInspections = () => {
   return (
@@ -11,4 +10,4 @@ const ManageInspections = () => {
   );
 };
 
-export default ManageInspections;
+export {ManageInspections};

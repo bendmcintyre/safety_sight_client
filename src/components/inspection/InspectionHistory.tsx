@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import 'tailwindcss/tailwind.css';
 
 // Define the type for the inspection object
 interface Inspection {
@@ -69,4 +68,4 @@ const InspectionHistory = () => {
   );
 };
 
-export default InspectionHistory;
+export {InspectionHistory};

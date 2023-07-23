@@ -1,11 +1,10 @@
 import React from 'react';
-import ActiveLink from './ActiveLink';
-import '../styles.css';
+import { ActiveLink } from './ActiveLink';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex justify-around mt-5">
-      <ActiveLink to="/inspection-form" className="text-primary">Inspection Form</ActiveLink>
+    <nav className="flex flex-col items-start mt-5">
+      <ActiveLink to="/inspection-form" className="text-primary">Inspect</ActiveLink>
       <ActiveLink to="/inspection-history" className="text-primary">Inspection History</ActiveLink>
       <ActiveLink to="/manage-inspections" className="text-primary">Manage Inspections</ActiveLink>
       <ActiveLink to="/manage-users" className="text-primary">Manage Users</ActiveLink>
@@ -16,4 +15,4 @@ const Navbar: React.FC = () => {
   );
 }
 
-export default Navbar;
+export {Navbar};

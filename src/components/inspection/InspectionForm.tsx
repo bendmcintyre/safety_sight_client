@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import 'tailwindcss/tailwind.css';
 
 interface InspectionData {
   name: string;
@@ -249,4 +248,4 @@ const InspectionForm = () => {
   );
 };
 
-export default InspectionForm;
+export {InspectionForm};

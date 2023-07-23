@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import 'tailwindcss/tailwind.css';
-import ForgotPasswordForm from './ForgotPasswordForm'; // Import the ForgotPasswordForm component
+import { ForgotPasswordForm } from './ForgotPasswordForm'; // Import the ForgotPasswordForm component
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -81,4 +80,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export {LoginForm};
