@@ -3,16 +3,11 @@ module.exports = {
   darkMode: 'media',
   theme: {
     extend: {
-      backgroundGradient: theme => ({
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
-        'gradient-custom': 'linear-gradient(180deg, var(--tw-gradient-stops))',
-      }),
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        background: '#083340',
-        primary: '#58B1CC',
+        background: 'gradient',
+        primary: '#1f222c',
         secondary: '#116680',
         accent: '#FFFFFF',
         pass1: '#239972',
@@ -25,7 +20,7 @@ module.exports = {
         submit2: '#1694BA',
         gradient: {
           start: '#1f222c', 
-          mid: '#3333ff', 
+          mid: '#010442', 
           end: '#1f222c'
         }
       },

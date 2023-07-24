@@ -9,12 +9,11 @@ const LeftNavbar: React.FC = () => {
           <img className="h-20 w-20" alt="Safety Sight Logo" src="Link Logo Here"></img>
         </div>
         <nav className="items-center text-sm space-y-4">
-          <ActiveLink to="/inspection-form" className="text-white text-center shadow-background bg-primary hover:bg-secondary hover:text-white font-bold py-2 px-4 rounded block">Inspect</ActiveLink>
-          <ActiveLink to="/inspection-history" className="text-white text-center shadow-background bg-primary hover:bg-secondary hover:text-white font-bold py-2 px-4 rounded block">Inspection History</ActiveLink>
-          <ActiveLink to="/inspection-detail" className="text-white text-center shadow-background bg-primary hover:bg-secondary hover:text-white font-bold py-2 px-4 rounded block">Inspection Details</ActiveLink>
-          <ActiveLink to="/settings" className="text-white text-center shadow-background bg-primary hover:bg-secondary hover:text-white font-bold py-2 px-4 rounded block">Settings</ActiveLink>
-          <ActiveLink to="/manage-users" className="text-white text-center shadow-background bg-primary hover:bg-secondary hover:text-white font-bold py-2 px-4 rounded block">Manage Users</ActiveLink>
-          <ActiveLink to="/settings" className="text-white text-center shadow-background bg-primary hover:bg-secondary hover:text-white font-bold py-2 px-4 rounded block">Settings</ActiveLink>
+          <ActiveLink to="/inspection-form" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Inspect</ActiveLink>
+          <ActiveLink to="/inspection-history" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Inspection History</ActiveLink>
+          <ActiveLink to="/inspection-detail" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Inspection Details</ActiveLink>
+          <ActiveLink to="/manage-users" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Manage Users</ActiveLink>
+          <ActiveLink to="/settings" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Settings</ActiveLink>
         </nav>
       </div>
     </div>
