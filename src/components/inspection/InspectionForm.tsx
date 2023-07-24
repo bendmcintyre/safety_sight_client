@@ -136,14 +136,13 @@ const InspectionForm = () => {
       .join('');
 
   return (
-    <div className="bg-background p-4">
-      <h2 className="text-primary  text-lg font-bold mb-4">New Inspection</h2>
-      <form className="bg-secondary shadow-background" onSubmit={(event) => handleSubmit(event)}>
-{/* Inputs  */}
-        
+    <div className="m-10 p-10 rounded-lg shadow-lg bg-secondary
+    ">
+      <h2 className="text-white  text-lg font-bold mb-4">New Inspection</h2>
+      <form className="bg-secondary shadow-background" onSubmit={(event) => handleSubmit(event)}>   
         <div className="grid grid-cols-4 sm:grid-cols-4 gap-4 mb-4">
           <div>
-            <label className="text-primary font-bold block mb-2">Name:</label>
+            <label className="text-white font-bold block mb-2">Name:</label>
             <input
               type="text"
               name="name"
@@ -154,7 +153,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="text-primary font-bold block mb-2 ">Lift:</label>
+            <label className="text-white font-bold block mb-2 ">Lift:</label>
             <input
               type="text"
               name="lift"
@@ -164,10 +163,8 @@ const InspectionForm = () => {
               onChange={handleChange}
             />
           </div>
-          
-
           <div>
-            <label className="text-primary font-bold block mb-2">Hours:</label>
+            <label className="text-white font-bold block mb-2">Hours:</label>
             <input
               type="text"
               name="hours"
@@ -178,7 +175,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="text-primary font-bold block mb-2">Date:</label>
+            <label className="text-white font-bold block mb-2">Date:</label>
             <input
               type="date"
               name="date"
@@ -189,8 +186,6 @@ const InspectionForm = () => {
             />
           </div>
         </div>
-        
-{/* Buttons  */}
         <div className="grid grid-cols-5 sm:grid-cols-5 gap-4 mb-4 ">
           {[
             'Tires',
@@ -208,7 +203,7 @@ const InspectionForm = () => {
             'Clean Forklift'
           ].map((question) => (
             <div key={question} >
-              <h3 className="font-bold mb-2 text-primary">{question}</h3>
+              <h3 className="font-bold mb-2 text-white">{question}</h3>
               <div className="flex items-center space-x-2">
                 <button
                   type="button"
@@ -232,9 +227,8 @@ const InspectionForm = () => {
             </div>
           ))}
         </div>
-{/* Text Field  */}
         <div className="mb-4">
-          <label className="text-primary font-bold block mb-2 ">Deficiencies present:</label>
+          <label className="text-white font-bold block mb-2 ">Deficiencies present:</label>
           <textarea
             name="deficienciesPresent"
             className="block w-full h-full border rounded p-2 "
@@ -243,8 +237,7 @@ const InspectionForm = () => {
             onChange={handleChange}
           />
         </div>
-{/* Submit  */}
-        <button type="submit" className="bg-primary text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background ">
+        <button type="submit" className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background ">
           Submit
         </button>
       </form>
