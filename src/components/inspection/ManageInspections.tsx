@@ -1,41 +1,35 @@
-// ManageInspections.tsx
-
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { InspectionsContext } from './InspectionContext';
 
 const ManageInspections: React.FC = () => {
-  // This would usually come from a back-end server.
-  const [inspections, setInspections] = useState([
-    {
-      id: 1,
-      name: "Inspection 1",
-    },
-    {
-      id: 2,
-      name: "Inspection 2",
-    },
-    // Add as many inspections as you want.
-  ]);
+  const { inspections, setInspections } = useContext(InspectionsContext);
 
-  useEffect(() => {
-    // Here you would usually make a GET request to your back-end server.
-    // For the purpose of this example, we'll use the initial inspections set above.
-  }, []);
+  const deleteInspection = (id: number) => {
+    if (window.confirm('Are you sure you want to delete this inspection?')) {
+      setInspections(inspections.filter((inspection) => inspection.id !== id));
+    }
+  };
 
   return (
-    <div>
-      <h1>Manage Inspections</h1>
-      <Link to="/create-inspection">Create New Inspection</Link>
-      {inspections.map((inspection) => (
-        <div key={inspection.id}>
-          <h2>{inspection.name}</h2>
-          <button>Delete</button>
-          <button>Edit</button>
-        </div>
-      ))}
+    <div className="bg-background p-4">
+      <h2 className="text-primary text-lg font-bold mb-4">Manage Inspections</h2>
+      <Link to="/create-inspection" className="block bg-white shadow rounded mb-4 p-4">
+        Create New Inspection
+      </Link>
+      {inspections.length === 0 ? (
+        <p className="text-primary">No inspections found.</p>
+      ) : (
+        inspections.map((inspection) => (
+          <div key={inspection.id} className="block bg-white shadow rounded mb-4 p-4">
+            <h2 className="mr-2">{inspection.name}</h2>
+            <button onClick={() => deleteInspection(inspection.id)} className="bg-red-500 text-white rounded p-2">Delete</button>
+            <Link to={`/manage-inspections/edit/${inspection.id}`} className="bg-blue-500 text-white rounded p-2 ml-2">Edit</Link>
+          </div>
+        ))
+      )}
     </div>
   );
 };
 
 export { ManageInspections };
-
