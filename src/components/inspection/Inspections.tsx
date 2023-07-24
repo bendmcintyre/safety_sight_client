@@ -1,38 +1,29 @@
-// Inspections.tsx
-
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { InspectionsContext } from './InspectionContext';
 
 const Inspections: React.FC = () => {
-  // This would usually come from a back-end server.
-  const [inspections, setInspections] = useState([
-    {
-      id: 1,
-      name: "Inspection 1",
-    },
-    {
-      id: 2,
-      name: "Inspection 2",
-    },
-    // Add as many inspections as you want.
-  ]);
-
-  useEffect(() => {
-    // Here you would usually make a GET request to your back-end server.
-    // For the purpose of this example, we'll use the initial inspections set above.
-  }, []);
+  const { inspections } = useContext(InspectionsContext);
 
   return (
-    <div>
-      <h1>Inspections</h1>
-      {inspections.map((inspection) => (
-        <div key={inspection.id}>
-          <h2>{inspection.name}</h2>
-          <Link to={`/inspection-form/${inspection.id}`}>Start</Link>
+    <div className="bg-background p-4">
+      <h2 className="text-primary text-lg font-bold mb-4">Inspections</h2>
+      {inspections.length === 0 ? (
+        <p className="text-primary">No inspections found.</p>
+      ) : (
+        <div>
+          {inspections.map((inspection) => (
+            <Link to={`/inspection-form/${inspection.id}`} className="block bg-white shadow rounded mb-4 p-4">
+              <div className="flex justify-between">
+                <h2 className="mr-2">{inspection.name}</h2>
+              </div>
+            </Link>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 };
 
 export { Inspections };
+
