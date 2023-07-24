@@ -28,7 +28,7 @@ const InspectionHistory = () => {
   );
 
   return (
-    <div className="bg-background  p-4">
+    <div className="bg-background p-4">
       <h2 className="text-primary text-lg font-bold mb-4">Inspection History</h2>
 
       <input
@@ -36,22 +36,23 @@ const InspectionHistory = () => {
         placeholder="Search"
         value={search}
         onChange={handleSearch}
+        className="mb-4"
       />
 
       {filteredInspections.length === 0 ? (
         <p className="text-primary">No inspections submitted yet.</p>
       ) : (
-        <ul>
+        <div>
           {filteredInspections.map((inspection, index) => (
-            <li key={index}>
-              <Link to={`/inspection-detail/${index}`}>
-                <p>Name: {inspection.name}</p>
-                <p>Lift: {inspection.lift}</p>
+            <Link to={`/inspection-detail/${index}`} className="block bg-white shadow rounded mb-4 p-4">
+              <div className="flex justify-between">
+                <p className="mr-2">Name: {inspection.name}</p>
+                <p className="mr-2">Lift: {inspection.lift}</p>
                 <p>Date: {inspection.date}</p>
-              </Link>
-            </li>
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

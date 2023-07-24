@@ -1,9 +1,9 @@
-// ManageInspections.tsx
+// Inspections.tsx
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const ManageInspections: React.FC = () => {
+const Inspections: React.FC = () => {
   // This would usually come from a back-end server.
   const [inspections, setInspections] = useState([
     {
@@ -24,18 +24,15 @@ const ManageInspections: React.FC = () => {
 
   return (
     <div>
-      <h1>Manage Inspections</h1>
-      <Link to="/create-inspection">Create New Inspection</Link>
+      <h1>Inspections</h1>
       {inspections.map((inspection) => (
         <div key={inspection.id}>
           <h2>{inspection.name}</h2>
-          <button>Delete</button>
-          <button>Edit</button>
+          <Link to={`/inspection-form/${inspection.id}`}>Start</Link>
         </div>
       ))}
     </div>
   );
 };
 
-export { ManageInspections };
-
+export { Inspections };

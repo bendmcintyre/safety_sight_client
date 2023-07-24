@@ -11,13 +11,13 @@ const LeftNavbar: React.FC = () => {
           <ActiveLink to="/dashboard" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
             <FontAwesomeIcon icon={faHome} />
           </ActiveLink>
-          <ActiveLink to="/inspection-form" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/inspections" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block"> {/* change to /inspections */}
             <FontAwesomeIcon icon={faSearch} />
           </ActiveLink>
           <ActiveLink to="/inspection-history" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
             <FontAwesomeIcon icon={faHistory} />
           </ActiveLink>
-          <ActiveLink to="/inspection-detail" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/manage-inspections" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
             <FontAwesomeIcon icon={faClipboardList} />
           </ActiveLink>
           <ActiveLink to="/manage-users" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
