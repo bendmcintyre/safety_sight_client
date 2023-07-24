@@ -1,5 +1,7 @@
 import React from 'react';
 import { ActiveLink } from './ActiveLink';
+import { Link } from 'react-router-dom';
+import image from '../../assets/logo_placeholder2.png';
 
 const TopNavbar: React.FC = () => {
   return (
@@ -7,7 +9,9 @@ const TopNavbar: React.FC = () => {
       <ActiveLink to="/notifications" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Notifications</ActiveLink>
       <ActiveLink to="/login" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Login</ActiveLink>
       <ActiveLink to="/register" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">Register</ActiveLink>
-      <img src="/path-to-your/profile-image.jpg" alt="Profile" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block" />
+      <Link to="/profile">
+        <img src={image} alt="Profile" className="w-16 h-16 text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold block" />
+      </Link>
     </div>
   );
 }

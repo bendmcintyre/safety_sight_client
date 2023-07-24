@@ -4,24 +4,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        transparent: 'transparent',
-        current: 'currentColor',
-        background: 'gradient',
-        primary: '#1f222c',
-        secondary: '#116680',
-        accent: '#FFFFFF',
-        pass1: '#239972',
+        primary: '#182039',
+        secondary: '#2e3449',
+        accent: '#212b4e',
+        pass1: '#3e64ff',
         pass2: '#154D1B',
         passhover: '#278C31',
         fail1: '#E81105',
         fail2: '#E63307',
         failhover: '#BF2B06',
-        submit1: '#58B1CC',
-        submit2: '#1694BA',
+        submit: '#3e64ff',
         gradient: {
-          start: '#1f222c', 
+          start: '#182039', 
           mid: '#010442', 
-          end: '#1f222c'
+          end: '#182039'
         }
       },
       fontFamily: {
@@ -45,14 +41,6 @@ module.exports = {
         '6xl': '4rem',
         '7xl': '5rem',
       },
-      boxShadow: {
-      default:
-        '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-      nebackground:
-        'inset 1px 1px 3px #072b36,9px 9px 20px #083340,-0px -0px 20px #093b4a',
-      neumorphismlight:
-        'inset 1px 1px 5px #fff, 9px 9px 20px rgba(222, 222, 222, 0.8),-0px -0px 20px #ffffff',
-    }
     },
   },
   variants: {

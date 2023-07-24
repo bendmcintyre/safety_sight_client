@@ -8,6 +8,7 @@ import { ManageInspections } from '../inspection/ManageInspections';
 import { ManageUsers } from '../users/ManageUsers';
 import { Contact } from '../support/Contact';
 import { InspectionDetail } from '../inspection/InspectionDetail';
+import { Profile } from '../users/Profile';
 
 const RoutesComponent: React.FC = () => {
   return (
@@ -20,8 +21,10 @@ const RoutesComponent: React.FC = () => {
       <Route path="/manage-inspections" element={<ManageInspections />} />
       <Route path="/manage-users" element={<ManageUsers />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }
 
 export { RoutesComponent };
+
