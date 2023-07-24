@@ -36,6 +36,14 @@ module.exports = {
         'display': ['Roboto Slab', 'serif'],
         'body': ['Roboto', 'sans-serif']
       },
+      boxShadow: {
+      default:
+        '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      nebackground:
+        'inset 1px 1px 3px #072b36,9px 9px 20px #083340,-0px -0px 20px #093b4a',
+      neumorphismlight:
+        'inset 1px 1px 5px #fff, 9px 9px 20px rgba(222, 222, 222, 0.8),-0px -0px 20px #ffffff',
+    }
     },
   },
   variants: {
