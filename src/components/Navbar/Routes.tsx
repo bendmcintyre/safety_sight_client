@@ -9,10 +9,12 @@ import { ManageUsers } from '../users/ManageUsers';
 import { Contact } from '../support/Contact';
 import { InspectionDetail } from '../inspection/InspectionDetail';
 import { Profile } from '../users/Profile';
+import { Dashboard } from '../dashboard/Dashboard'
 
 const RoutesComponent: React.FC = () => {
   return (
     <Routes>
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/inspection-form" element={<InspectionForm />} />
