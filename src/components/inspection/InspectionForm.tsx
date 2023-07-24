@@ -138,10 +138,12 @@ const InspectionForm = () => {
   return (
     <div className="bg-background p-4">
       <h2 className="text-primary  text-lg font-bold mb-4">New Inspection</h2>
-      <form onSubmit={(event) => handleSubmit(event)}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <form className="bg-secondary shadow-background" onSubmit={(event) => handleSubmit(event)}>
+{/* Inputs  */}
+        
+        <div className="grid grid-cols-4 sm:grid-cols-4 gap-4 mb-4">
           <div>
-            <label className="text-primary block mb-2">Name:</label>
+            <label className="text-primary font-bold block mb-2">Name:</label>
             <input
               type="text"
               name="name"
@@ -152,7 +154,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="text-primary block mb-2">Lift:</label>
+            <label className="text-primary font-bold block mb-2 ">Lift:</label>
             <input
               type="text"
               name="lift"
@@ -162,8 +164,10 @@ const InspectionForm = () => {
               onChange={handleChange}
             />
           </div>
+          
+
           <div>
-            <label className="text-primary block mb-2">Hours:</label>
+            <label className="text-primary font-bold block mb-2">Hours:</label>
             <input
               type="text"
               name="hours"
@@ -174,7 +178,7 @@ const InspectionForm = () => {
             />
           </div>
           <div>
-            <label className="text-primary block mb-2">Date:</label>
+            <label className="text-primary font-bold block mb-2">Date:</label>
             <input
               type="date"
               name="date"
@@ -185,8 +189,9 @@ const InspectionForm = () => {
             />
           </div>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        
+{/* Buttons  */}
+        <div className="grid grid-cols-5 sm:grid-cols-5 gap-4 mb-4 ">
           {[
             'Tires',
             'Horn',
@@ -202,14 +207,14 @@ const InspectionForm = () => {
             'Operators Manual Present',
             'Clean Forklift'
           ].map((question) => (
-            <div key={question}>
-              <h3 className="font-bold mb-2">{question}</h3>
+            <div key={question} >
+              <h3 className="font-bold mb-2 text-primary">{question}</h3>
               <div className="flex items-center space-x-2">
                 <button
                   type="button"
                   className={`${
-                    passClicked[question] ? 'bg-pass2' : 'bg-pass1'
-                  } hover:bg-passhover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                    passClicked[question] ? 'bg-passhover' : 'bg-pass1'
+                  } hover:bg-passhover text-white font-bold py-2 px-4 rounded`}
                   onClick={() => handlePassFailClick(question, 'Pass')}
                 >
                   Pass
@@ -217,8 +222,8 @@ const InspectionForm = () => {
                 <button
                   type="button"
                   className={`${
-                    failClicked[question] ? 'bg-fail2' : 'bg-fail2'
-                  } hover:bg-failhover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                    failClicked[question] ? 'bg-failhover' : 'bg-fail1'
+                  } hover:bg-failhover text-white font-bold py-2 px-4 rounded `}
                   onClick={() => handlePassFailClick(question, 'Fail')}
                 >
                   Fail
@@ -227,19 +232,19 @@ const InspectionForm = () => {
             </div>
           ))}
         </div>
-
+{/* Text Field  */}
         <div className="mb-4">
-          <label className="text-primary block mb-2">Deficiencies present:</label>
+          <label className="text-primary font-bold block mb-2 ">Deficiencies present:</label>
           <textarea
             name="deficienciesPresent"
-            className="block w-full border rounded p-2"
+            className="block w-full h-full border rounded p-2 "
             required
             value={inspectionData.deficienciesPresent}
             onChange={handleChange}
           />
         </div>
-
-        <button type="submit" className="bg-primary text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+{/* Submit  */}
+        <button type="submit" className="bg-primary text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background ">
           Submit
         </button>
       </form>

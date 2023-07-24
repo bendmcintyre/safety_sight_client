@@ -23,9 +23,9 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="bg-background flex flex-col justify-center items-center h-screen bg-gray-100">
+    <div className="bg-background flex flex-col justify-center items-center h-screen shadow-background">
       <form 
-        className="bg-secondary  shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-secondary rounded px-8 pt-6 pb-8 mb-4 shadow-background"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
@@ -36,7 +36,7 @@ const LoginForm = () => {
             Username
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="  border rounded w-full py-2 px-3 text-gray-700 leading-tight shadow-background "
             type="text"
             id="username"
             value={username}
@@ -52,7 +52,7 @@ const LoginForm = () => {
             Password
           </label>
           <input 
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className=" border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight shadow-background"
             type="password"
             id="password"
             value={password}
@@ -62,13 +62,13 @@ const LoginForm = () => {
         </div>
         <div className="flex items-center justify-between">
           <button 
-            className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-primary text-white font-bold text-sm py-2 px-4 rounded hover:bg-secondary shadow-background"
             type="submit"
           >
             Sign In
           </button>
           <button 
-            className="text-primary hover:text-blue-700 text-sm focus:outline-none"
+            className="text-primary hover:text-background text-xs focus:outline-none"
             type="button"
             onClick={handleForgotPasswordClick} // Call the handleForgotPasswordClick function when "Forgot Password" button is clicked
           >
