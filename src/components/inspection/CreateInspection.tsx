@@ -42,9 +42,9 @@ const CreateInspection: React.FC = () => {
   };
 
   return (
-    <div className="m-10 p-10 rounded-lg shadow-lg bg-primary">
-      <h1 className="text-white text-lg font-bold mb-4">Create Inspection</h1>
-      <form onSubmit={createInspection}>
+    <div className="m-10 p-10 rounded-lg items-center shadow-lg bg-primary ">
+      <h1 className="text-white text-lg grid-start-2 font-bold mb-4 ">Create Inspection</h1>
+      <form onSubmit={createInspection} className="grid grid-cols-1 grid-rows-6">
         <label className="text-white font-bold block mb-2 ">
           Inspection Name:
           <input
@@ -52,7 +52,7 @@ const CreateInspection: React.FC = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="block w-full h-full border rounded p-2 text-primary"
+            className="block w-60 h-1/2 border rounded p-2 text-primary"
           />
         </label>
         {questions.map((question, index) => (
@@ -67,19 +67,19 @@ const CreateInspection: React.FC = () => {
             type="text"
             value={newQuestionName}
             onChange={(e) => setNewQuestionName(e.target.value)}
-            className="block w-full h-full border rounded p-2 text-primary"
+            className="block w-60 h-1/2 border rounded p-2 text-primary"
           />
         </label>
         <select
           value={newQuestionType}
           onChange={(e) => setNewQuestionType(e.target.value as 'text' | 'date' | 'pass/fail')}
-          className="block w-full h-full border rounded p-2"
+          className="block w-60 h-1/2 border rounded p-2"
         >
           <option value="text">Text</option>
           <option value="date">Date</option>
           <option value="pass/fail">Pass/Fail</option>
         </select>
-        <button type="button" onClick={addQuestion} className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background mt-2">
+        <button type="button" onClick={addQuestion} className="bg-submit text-white hover:bg-secondary w-60 h-1/2 items-center rounded shadow-background mt-2">
           Add Field
         </button>
 
@@ -89,22 +89,13 @@ const CreateInspection: React.FC = () => {
             type="text"
             value={deleteQuestionName}
             onChange={(e) => setDeleteQuestionName(e.target.value)}
-            className="block w-full h-full border rounded p-2 text-white"
+            className="block w-60 h-1/2 border rounded p-2 text-white"
           />
         </label>
-        <select
-          value={deleteQuestionType}
-          onChange={(e) => setDeleteQuestionType(e.target.value as 'text' | 'date' | 'pass/fail')}
-          className="block w-full h-full border rounded p-2"
-        >
-          <option value="text">Text</option>
-          <option value="date">Date</option>
-          <option value="pass/fail">Pass/Fail</option>
-        </select>
-        <button type="button" onClick={deleteQuestion} className="bg-failhover text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background mt-2">
+        <button type="button" onClick={deleteQuestion} className="bg-failhover text-white hover:bg-secondary w-60 h-1/2 items-center py-2 px-4 rounded shadow-background mt-2">
           Delete Field
         </button>
-        <button type="submit" className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background mt-2">
+        <button type="submit" className="bg-submit text-white hover:bg-secondary w-60 h-100 items-center py-2 px-4 rounded shadow-background mt-2">
           Create Inspection
         </button>
       </form>
