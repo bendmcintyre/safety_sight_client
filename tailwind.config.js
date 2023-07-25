@@ -14,6 +14,7 @@ module.exports = {
         fail2: '#E63307',
         failhover: '#BF2B06',
         submit: '#3e64ff',
+        white: '#FFFFFF',
         gradient: {
           start: '#182039', 
           mid: '#010442', 

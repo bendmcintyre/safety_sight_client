@@ -13,12 +13,12 @@ const ManageInspection: React.FC = () => {
 
   return (
     <div className="bg-background p-4">
-      <h2 className="text-primary text-lg font-bold mb-4">Manage Inspection</h2>
+      <h2 className="text-white text-lg font-bold mb-4">Manage Inspection</h2>
       <Link to="/create-inspection" className="block bg-white shadow rounded mb-4 p-4">
         Create New Inspection
       </Link>
       {inspection.length === 0 ? (
-        <p className="text-primary">No inspection found.</p>
+        <p className="text-white">No inspection found.</p>
       ) : (
         inspection.map((inspection) => (
           <div key={inspection.id} className="block bg-white shadow rounded mb-4 p-4">
