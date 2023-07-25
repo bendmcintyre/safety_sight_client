@@ -8,19 +8,19 @@ interface Inspection {
 }
 
 const InspectionHistory = () => {
-  const [inspections, setInspections] = useState<Inspection[]>([]);
+  const [inspection, setInspection] = useState<Inspection[]>([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    const submittedInspections = JSON.parse(localStorage.getItem('inspections') || '[]');
-    setInspections(submittedInspections);
+    const submittedInspection = JSON.parse(localStorage.getItem('inspection') || '[]');
+    setInspection(submittedInspection);
   }, []);
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const filteredInspections = inspections.filter(
+  const filteredInspection = inspection.filter(
     (inspection) =>
       inspection.name.toLowerCase().includes(search.toLowerCase()) ||
       inspection.lift.toLowerCase().includes(search.toLowerCase()) ||
@@ -39,11 +39,11 @@ const InspectionHistory = () => {
         className="mb-4"
       />
 
-      {filteredInspections.length === 0 ? (
-        <p className="text-primary">No inspections submitted yet.</p>
+      {filteredInspection.length === 0 ? (
+        <p className="text-primary">No inspection submitted yet.</p>
       ) : (
         <div>
-          {filteredInspections.map((inspection, index) => (
+          {filteredInspection.map((inspection, index) => (
             <Link to={`/inspection-detail/${index}`} className="block bg-white shadow rounded mb-4 p-4">
               <div className="flex justify-between">
                 <p className="mr-2">Name: {inspection.name}</p>

@@ -3,13 +3,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { TopBar } from './components/navbar/TopBar';
 import { LeftBar } from './components/navbar/LeftBar';
 import { RoutesComponent } from './components/navbar/Routes';
-import { InspectionsProvider } from './components/inspection/InspectionContext';
+import { InspectionProvider } from './components/inspection/InspectionContext';
 import logo from './assets/logo_placeholder.png';
 import './styles.css'; 
 
 const App: React.FC = () => {
   return (
-    <InspectionsProvider>
+    <InspectionProvider>
       <Router>
         <div className="m-10 p-10 rounded-lg shadow-lg bg-primary">
           <TopBar />
@@ -26,7 +26,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </Router>
-    </InspectionsProvider>
+    </InspectionProvider>
   );
 }
 

@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { InspectionsContext } from './InspectionContext';
+import { InspectionContext } from './InspectionContext';
 
-const Inspections: React.FC = () => {
-  const { inspections } = useContext(InspectionsContext);
+const Inspection: React.FC = () => {
+  const { inspection } = useContext(InspectionContext);
 
   return (
     <div className="bg-background p-4">
-      <h2 className="text-primary text-lg font-bold mb-4">Inspections</h2>
-      {inspections.length === 0 ? (
-        <p className="text-primary">No inspections found.</p>
+      <h2 className="text-primary text-lg font-bold mb-4">Inspection</h2>
+      {inspection.length === 0 ? (
+        <p className="text-primary">No inspection found.</p>
       ) : (
         <div>
-          {inspections.map((inspection) => (
+          {inspection.map((inspection) => (
             <Link to={`/inspection-form/${inspection.id}`} className="block bg-white shadow rounded mb-4 p-4">
               <div className="flex justify-between">
                 <h2 className="mr-2">{inspection.name}</h2>
@@ -25,5 +25,5 @@ const Inspections: React.FC = () => {
   );
 };
 
-export { Inspections };
+export { Inspection };
 
