@@ -5,7 +5,7 @@ import { faHome, faSearch, faHistory, faUserCog, faCog, faClipboardList } from '
 
 const LeftNavbar: React.FC = () => {
   return (
-    <div className="rounded mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="rounded mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-secomdary">
       <div className="w-full h-full bg-primary rounded flex flex-col items-center">
         <nav className="items-center text-sm space-y-4">
           <ActiveLink to="/dashboard" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
