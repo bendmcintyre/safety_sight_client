@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { TopBar } from './components/Navbar/TopBar';
-import { LeftBar } from './components/Navbar/LeftBar';
-import { RoutesComponent } from './components/Navbar/Routes';
+import { TopBar } from './components/navbar/TopBar';
+import { LeftBar } from './components/navbar/LeftBar';
+import { RoutesComponent } from './components/navbar/Routes';
 import { InspectionProvider } from './components/inspection/InspectionContext';
 import logo from './assets/logo_placeholder.png';
 import './styles.css'; 
