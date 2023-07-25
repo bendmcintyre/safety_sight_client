@@ -21,7 +21,7 @@ const ForgotPasswordForm = () => {
   };
 
   return (
-    <div className="bg-background flex flex-col justify-center items-center h-screen bg-gray-100">
+    <div className="flex flex-col justify-center items-center h-screen">
       <form 
         className="bg-secondary shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}
