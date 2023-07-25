@@ -13,6 +13,7 @@ import { InspectionDetail } from '../inspection/InspectionDetail';
 import { Profile } from '../users/Profile';
 import { Dashboard } from '../dashboard/Dashboard'
 import { Inspection } from '../inspection/Inspection';
+import { Settings } from '../support/Settings';
 
 const RoutesComponent: React.FC = () => {
   return (
@@ -30,6 +31,7 @@ const RoutesComponent: React.FC = () => {
       <Route path="/manage-users" element={<ManageUsers />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }

@@ -29,7 +29,7 @@ const InspectionHistory = () => {
 
   return (
     <div className="bg-background p-4">
-      <h2 className="text-primary text-lg font-bold mb-4">Inspection History</h2>
+      <h2 className="text-white text-lg font-bold mb-4">Inspection History</h2>
 
       <input
         type="text"
@@ -40,7 +40,7 @@ const InspectionHistory = () => {
       />
 
       {filteredInspection.length === 0 ? (
-        <p className="text-primary">No inspection submitted yet.</p>
+        <p className="text-white">No inspection submitted yet.</p>
       ) : (
         <div>
           {filteredInspection.map((inspection, index) => (
