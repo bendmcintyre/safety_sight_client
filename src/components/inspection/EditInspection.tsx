@@ -27,6 +27,11 @@ const EditInspection: React.FC = () => {
     setItemName('');
   };
 
+  const deleteInspectionItem = () => {
+    setInspectionItems(prevItems => [...prevItems]);
+    setItemName(''); 
+  }
+
   return (
     <div className="bg-background p-4">
       <h2 className="text-primary text-lg font-bold mb-4">Edit Inspection</h2>
@@ -48,6 +53,8 @@ const EditInspection: React.FC = () => {
           <option value="pass/fail">Pass/Fail</option>
         </select>
         <button onClick={addInspectionItem} className="bg-blue-500 text-white rounded p-2 ml-2">Add</button>
+        <button onClick={deleteInspectionItem} className="bg-red-500 text-white rounded p-2 ml-2">Delete</button>
+        
       </div>
       {inspectionItems.map((item, index) => (
         <div key={index} className="mb-4">
