@@ -1,6 +1,6 @@
-// EditInspection.tsx
-
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { InspectionContext } from './InspectionContext';
 
 interface InspectionItem {
   name: string;
@@ -8,9 +8,19 @@ interface InspectionItem {
 }
 
 const EditInspection: React.FC = () => {
+  const { id } = useParams<{id?: string}>();  // Change here
+  const { getInspectionById } = useContext(InspectionContext);
   const [inspectionItems, setInspectionItems] = useState<InspectionItem[]>([]); 
   const [itemName, setItemName] = useState('');
   const [itemType, setItemType] = useState('text');
+
+  useEffect(() => {
+    const inspection = getInspectionById(Number(id));
+    if (inspection && inspection.questions) {
+      const items = inspection.questions.map(question => ({ name: question, type: 'text' as 'text' | 'date' | 'pass/fail' }));
+      setInspectionItems(items);
+    }
+  }, [id, getInspectionById]);
 
   const addInspectionItem = () => {
     setInspectionItems(prevItems => [...prevItems, { name: itemName, type: itemType as 'text' | 'date' | 'pass/fail' }]);

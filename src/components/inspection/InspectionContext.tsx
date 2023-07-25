@@ -1,43 +1,50 @@
 import React, { createContext, useState, ReactNode } from 'react';
 
-interface InspectionType {
+interface InspectionItem {
   id: number;
   name: string;
+  questions: string[];
 }
 
-interface InspectionContextType {
-  inspections: InspectionType[];
-  setInspections: (inspections: InspectionType[]) => void;
-}
+export type InspectionContextType = {
+  inspection: InspectionItem[];
+  setInspection: (inspection: InspectionItem[]) => void;
+  getInspectionById: (id: number) => InspectionItem | undefined;
+};
 
-const InspectionsContext = createContext<InspectionContextType>({
-  inspections: [],
-  setInspections: (inspections: InspectionType[]) => {},
+const InspectionContext = createContext<InspectionContextType>({
+  inspection: [],
+  setInspection: (inspection: InspectionItem[]) => {},
+  getInspectionById: (id: number) => undefined,
 });
 
-interface InspectionsProviderProps {
+interface InspectionProviderProps {
   children: ReactNode;
 }
 
-const InspectionsProvider = ({ children }: InspectionsProviderProps) => {
-  const [inspections, setInspections] = useState<InspectionType[]>([
+const InspectionProvider = ({ children }: InspectionProviderProps) => {
+  const [inspection, setInspection] = useState<InspectionItem[]>([
     {
       id: 1,
       name: 'Inspection 1',
+      questions: [],
     },
     {
       id: 2,
       name: 'Inspection 2',
+      questions: [],
     },
   ]);
 
+  const getInspectionById = (id: number) => {
+    return inspection.find((inspection) => inspection.id === id);
+  };
+
   return (
-    <InspectionsContext.Provider value={{ inspections, setInspections }}>
+    <InspectionContext.Provider value={{ inspection, setInspection, getInspectionById }}>
       {children}
-    </InspectionsContext.Provider>
+    </InspectionContext.Provider>
   );
 };
 
-export { InspectionsContext, InspectionsProvider };
-
-
+export { InspectionContext, InspectionProvider };

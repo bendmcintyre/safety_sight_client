@@ -1,48 +1,15 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
+import { InspectionContext, InspectionContextType } from './InspectionContext';
 
-interface InspectionData {
+interface InspectionItem {
+  id: number;
   name: string;
-  lift: string;
-  hours: string;
-  date: string;
-  tires: string;
-  horn: string;
-  battery: string;
-  controls: string;
-  brakes: string;
-  steering: string;
-  hydraulics: string;
-  overheadGuard: string;
-  charger: string;
-  fallArrest: string;
-  loadPlateDisplayed: string;
-  operatorsManualPresent: string;
-  cleanForklift: string;
-  deficienciesPresent: string;
+  questions: string[];
 }
 
 const InspectionForm = () => {
-  const [inspectionData, setInspectionData] = useState<InspectionData>({
-    name: '',
-    lift: '',
-    hours: '',
-    date: '',
-    tires: '',
-    horn: '',
-    battery: '',
-    controls: '',
-    brakes: '',
-    steering: '',
-    hydraulics: '',
-    overheadGuard: '',
-    charger: '',
-    fallArrest: '',
-    loadPlateDisplayed: '',
-    operatorsManualPresent: '',
-    cleanForklift: '',
-    deficienciesPresent: ''
-  });
-
+  const { inspection, setInspection } = useContext<InspectionContextType>(InspectionContext);
+  const [inspectionData, setInspectionData] = useState<{ [key: string]: string }>({});
   const [passClicked, setPassClicked] = useState<Record<string, boolean>>({});
   const [failClicked, setFailClicked] = useState<Record<string, boolean>>({});
 
@@ -52,8 +19,7 @@ const InspectionForm = () => {
   };
 
   const handlePassFailClick = (question: string, value: string) => {
-    const camelCaseQuestion = toCamelCase(question);
-    setInspectionData((prevData) => ({ ...prevData, [camelCaseQuestion]: value }));
+    setInspectionData((prevData) => ({ ...prevData, [question]: value }));
 
     // Update button clicks for the current question
     setPassClicked((prevClicked) => ({ ...prevClicked, [question]: value === 'Pass' }));
@@ -61,183 +27,92 @@ const InspectionForm = () => {
   };
 
   const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    // Check if any field is empty
-    for (const key in inspectionData) {
-      if (inspectionData[key as keyof InspectionData] === '') {
-        alert('Please fill out all fields before submitting.');
-        return;
+  // Check if any field is empty
+  for (const key in inspectionData) {
+    if (inspectionData[key] === '') {
+      alert('Please fill out all fields before submitting.');
+      return;
+    }
+  }
+
+  // Check if all pass/fail questions are selected
+  for (const question of inspection.map((item) => item.name)) {
+    if (inspectionData[question] !== 'Pass' && inspectionData[question] !== 'Fail') {
+      alert('Please select "Pass" or "Fail" for all inspection questions.');
+      return;
+    }
+  }
+
+  // Convert inspectionData to an array of InspectionItem
+  const updatedInspection: InspectionItem[] = inspection.map((item) => ({
+    id: item.id,
+    name: item.name,
+    questions: item.questions,
+  }));
+
+  // Update the answers for each question
+  for (const question of inspection.map((item) => item.name)) {
+    for (const updatedQuestion of updatedInspection) {
+      if (updatedQuestion.name === question) {
+        updatedQuestion.questions.push(inspectionData[question]);
       }
     }
+  }
 
-    // Check if all pass/fail questions are selected
-    for (const question of [
-      'Tires',
-      'Horn',
-      'Battery',
-      'Controls',
-      'Brakes',
-      'Steering',
-      'Hydraulics',
-      'Overhead Guard',
-      'Charger',
-      'Fall Arrest',
-      'Load Plate Displayed',
-      'Operators Manual Present',
-      'Clean Forklift'
-    ]) {
-      const camelCaseQuestion = toCamelCase(question);
-      if (
-        inspectionData[camelCaseQuestion as keyof InspectionData] !== 'Pass' &&
-        inspectionData[camelCaseQuestion as keyof InspectionData] !== 'Fail'
-      ) {
-        alert('Please select "Pass" or "Fail" for all inspection questions.');
-        return;
-      }
-    }
+  // Save the inspection data
+  setInspection(updatedInspection);
 
-    // Save the inspection data to localStorage
-    const submittedInspections = JSON.parse(localStorage.getItem('inspections') || '[]');
-    submittedInspections.push(inspectionData);
-    localStorage.setItem('inspections', JSON.stringify(submittedInspections));
+  // Reset the form after submission
+  setInspectionData({});
+  setPassClicked({});
+  setFailClicked({});
+};
 
-    // Reset the form after submission
-    setInspectionData({
-      name: '',
-      lift: '',
-      hours: '',
-      date: '',
-      tires: '',
-      horn: '',
-      battery: '',
-      controls: '',
-      brakes: '',
-      steering: '',
-      hydraulics: '',
-      overheadGuard: '',
-      charger: '',
-      fallArrest: '',
-      loadPlateDisplayed: '',
-      operatorsManualPresent: '',
-      cleanForklift: '',
-      deficienciesPresent: ''
-    });
-
-    // Reset the button clicks
-    setPassClicked({});
-    setFailClicked({});
-  };
-
-  const toCamelCase = (str: string) =>
-    str
-      .split(' ')
-      .map((word, index) => (index ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word.toLowerCase()))
-      .join('');
 
   return (
-    <div className="m-10 p-10 rounded-lg shadow-lg bg-secondary
-    ">
-      <h2 className="text-white  text-lg font-bold mb-4">New Inspection</h2>
-      <form className="bg-secondary shadow-background" onSubmit={(event) => handleSubmit(event)}>   
-        <div className="grid grid-cols-4 sm:grid-cols-4 gap-4 mb-4">
-          <div>
-            <label className="text-white font-bold block mb-2">Name:</label>
-            <input
-              type="text"
-              name="name"
-              className="block w-full border rounded p-2"
-              required
-              value={inspectionData.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label className="text-white font-bold block mb-2 ">Lift:</label>
-            <input
-              type="text"
-              name="lift"
-              className="block w-full border rounded p-2"
-              required
-              value={inspectionData.lift}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label className="text-white font-bold block mb-2">Hours:</label>
-            <input
-              type="text"
-              name="hours"
-              className="block w-full border rounded p-2"
-              required
-              value={inspectionData.hours}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label className="text-white font-bold block mb-2">Date:</label>
-            <input
-              type="date"
-              name="date"
-              className="block w-full border rounded p-2"
-              required
-              value={inspectionData.date}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-5 sm:grid-cols-5 gap-4 mb-4 ">
-          {[
-            'Tires',
-            'Horn',
-            'Battery',
-            'Controls',
-            'Brakes',
-            'Steering',
-            'Hydraulics',
-            'Overhead Guard',
-            'Charger',
-            'Fall Arrest',
-            'Load Plate Displayed',
-            'Operators Manual Present',
-            'Clean Forklift'
-          ].map((question) => (
-            <div key={question} >
-              <h3 className="font-bold mb-2 text-white">{question}</h3>
-              <div className="flex items-center space-x-2">
-                <button
-                  type="button"
-                  className={`${
-                    passClicked[question] ? 'bg-passhover' : 'bg-pass1'
-                  } hover:bg-passhover text-white font-bold py-2 px-4 rounded`}
-                  onClick={() => handlePassFailClick(question, 'Pass')}
-                >
-                  Pass
-                </button>
-                <button
-                  type="button"
-                  className={`${
-                    failClicked[question] ? 'bg-failhover' : 'bg-fail1'
-                  } hover:bg-failhover text-white font-bold py-2 px-4 rounded `}
-                  onClick={() => handlePassFailClick(question, 'Fail')}
-                >
-                  Fail
-                </button>
-              </div>
+    <div className="m-10 p-10 rounded-lg shadow-lg bg-secondary">
+      <h2 className="text-white text-lg font-bold mb-4">New Inspection</h2>
+      <form className="bg-secondary shadow-background" onSubmit={handleSubmit}>
+        {inspection.map((inspectionItem: InspectionItem) => (
+          <div key={inspectionItem.id}>
+            <h3 className="font-bold mb-2 text-white">{inspectionItem.name}</h3>
+            <div className="flex items-center space-x-2">
+              <button
+                type="button"
+                className={`${
+                  passClicked[inspectionItem.name] ? 'bg-passhover' : 'bg-pass1'
+                } hover:bg-passhover text-white font-bold py-2 px-4 rounded`}
+                onClick={() => handlePassFailClick(inspectionItem.name, 'Pass')}
+              >
+                Pass
+              </button>
+              <button
+                type="button"
+                className={`${
+                  failClicked[inspectionItem.name] ? 'bg-failhover' : 'bg-fail1'
+                } hover:bg-failhover text-white font-bold py-2 px-4 rounded `}
+                onClick={() => handlePassFailClick(inspectionItem.name, 'Fail')}
+              >
+                Fail
+              </button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
         <div className="mb-4">
           <label className="text-white font-bold block mb-2 ">Deficiencies present:</label>
           <textarea
             name="deficienciesPresent"
-            className="block w-full h-full border rounded p-2 "
-            required
-            value={inspectionData.deficienciesPresent}
+            className="block w-full h-full border rounded p-2"
+            value={inspectionData.deficienciesPresent || ''}
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background ">
+        <button
+          type="submit"
+          className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background "
+        >
           Submit
         </button>
       </form>
@@ -245,4 +120,4 @@ const InspectionForm = () => {
   );
 };
 
-export {InspectionForm};
+export { InspectionForm };

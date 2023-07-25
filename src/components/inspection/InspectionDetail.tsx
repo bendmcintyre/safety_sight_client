@@ -28,10 +28,10 @@ const InspectionDetail: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const submittedInspections: InspectionData[] = JSON.parse(localStorage.getItem('inspections') || '[]');
+    const submittedInspection: InspectionData[] = JSON.parse(localStorage.getItem('inspection') || '[]');
     const inspectionId = id ? parseInt(id, 10) : -1;
     if (inspectionId !== -1) {
-      setInspection(submittedInspections[inspectionId]);
+      setInspection(submittedInspection[inspectionId]);
     }
   }, [id]);
 
