@@ -11,12 +11,20 @@ const CreateInspection: React.FC = () => {
   const [name, setName] = useState('');
   const [questions, setQuestions] = useState<Question[]>([]);
   const [newQuestionName, setNewQuestionName] = useState('');
-  const [newQuestionType, setNewQuestionType] = useState<'text' | 'date' | 'pass/fail'>('text');
+  const [newQuestionType, setNewQuestionType] = useState<'text' | 'date' | 'pass/fail'>('text')
+  const [deleteQuestionName, setDeleteQuestionName] = useState('');
+  const [deleteQuestionType, setDeleteQuestionType] = useState<'text' | 'date' | 'pass/fail'>('text');
 
   const addQuestion = () => {
     setQuestions([...questions, { name: newQuestionName, type: newQuestionType }]);
     setNewQuestionName('');
     setNewQuestionType('text');
+  };
+  
+  const deleteQuestion = () => {
+    setQuestions([...questions]);
+    setDeleteQuestionName('');
+    setDeleteQuestionType('text');
   };
 
   const createInspection = (e: React.FormEvent) => {
@@ -54,7 +62,7 @@ const CreateInspection: React.FC = () => {
           </div>
         ))}
         <label className="text-white font-bold block mb-2 ">
-          Name:
+          Add Field:
           <input
             type="text"
             value={newQuestionName}
@@ -72,7 +80,29 @@ const CreateInspection: React.FC = () => {
           <option value="pass/fail">Pass/Fail</option>
         </select>
         <button type="button" onClick={addQuestion} className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background mt-2">
-          Add Question
+          Add Field
+        </button>
+
+        <label className="text-white font-bold block mb-2 ">
+          Delete Field:
+          <input
+            type="text"
+            value={deleteQuestionName}
+            onChange={(e) => setDeleteQuestionName(e.target.value)}
+            className="block w-full h-full border rounded p-2 text-white"
+          />
+        </label>
+        <select
+          value={deleteQuestionType}
+          onChange={(e) => setDeleteQuestionType(e.target.value as 'text' | 'date' | 'pass/fail')}
+          className="block w-full h-full border rounded p-2"
+        >
+          <option value="text">Text</option>
+          <option value="date">Date</option>
+          <option value="pass/fail">Pass/Fail</option>
+        </select>
+        <button type="button" onClick={deleteQuestion} className="bg-failhover text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background mt-2">
+          Delete Field
         </button>
         <button type="submit" className="bg-submit text-white hover:bg-secondary items-center py-2 px-4 rounded shadow-background mt-2">
           Create Inspection

@@ -36,7 +36,7 @@ const EditInspection: React.FC = () => {
           value={itemName} 
           onChange={e => setItemName(e.target.value)} 
           placeholder="Enter item name" 
-          className="border rounded p-2"
+          className="border rounded p-2 "
         />
         <select 
           value={itemType} 
