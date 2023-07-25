@@ -6,7 +6,7 @@ const InspectionHistory: React.FC = () => {
   const { submittedInspections } = useContext(InspectionContext);
 
   return (
-    <div className="bg-background p-4">
+    <div className="bg-background p-4 grid col-6">
       <h2 className="text-white text-lg font-bold mb-4">Inspection History</h2>
       {submittedInspections.length === 0 ? (
         <p className="text-white">No inspection submitted yet.</p>
