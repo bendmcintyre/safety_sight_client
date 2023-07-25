@@ -1,9 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { InspectionContext } from './InspectionContext';
 
 const Inspection: React.FC = () => {
   const { inspection } = useContext(InspectionContext);
+
+  // This useEffect will run every time the inspection state changes
+  useEffect(() => {
+    console.log('Inspection state:', inspection);
+  }, [inspection]);
 
   return (
     <div className="bg-background p-4">
@@ -26,4 +31,3 @@ const Inspection: React.FC = () => {
 };
 
 export { Inspection };
-

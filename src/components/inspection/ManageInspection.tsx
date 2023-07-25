@@ -18,7 +18,7 @@ const ManageInspection: React.FC = () => {
         Create New Inspection
       </Link>
       {inspection.length === 0 ? (
-        <p className="text-white">No inspection found.</p>
+        <p className="text-white">No inspections have been created yet.</p>
       ) : (
         inspection.map((inspection) => (
           <div key={inspection.id} className="block bg-white shadow rounded mb-4 p-4">
