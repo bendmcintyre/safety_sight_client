@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ForgotPasswordForm } from './ForgotPasswordForm'; // Import the ForgotPasswordForm component
+import { ForgotPasswordForm } from './forgot-password'; // Import the ForgotPasswordForm component
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');

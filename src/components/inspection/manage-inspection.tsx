@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { InspectionContext } from './InspectionContext';
+import { InspectionContext } from './inspection-context';
 
 const ManageInspection: React.FC = () => {
   const { inspection, setInspection } = useContext(InspectionContext);

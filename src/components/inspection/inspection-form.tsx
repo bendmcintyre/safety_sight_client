@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
-import { InspectionContext, InspectionContextType } from './InspectionContext';
+import { InspectionContext, InspectionContextType } from './inspection-context';
 
 interface InspectionItem {
   id: number;

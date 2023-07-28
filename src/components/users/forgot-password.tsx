@@ -15,13 +15,15 @@ const ForgotPasswordForm = () => {
     // Implement your forgot password reset logic here
     // Call your reset password service with the email
     // resetPasswordService.resetPassword(email);
+    
+
 
     // Optionally, show a success message or redirect to a confirmation page
     alert('Password reset link sent to your email.');
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="bg-void flex flex-col justify-center items-center h-screen">
       <form 
         className="bg-secondary shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}

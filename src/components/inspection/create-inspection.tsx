@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { InspectionContext } from './InspectionContext';
+import { InspectionContext } from './inspection-context';
 
 interface Question {
   name: string;

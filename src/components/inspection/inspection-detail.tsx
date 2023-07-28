@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { InspectionContext, InspectionContextType } from './InspectionContext';
+import { InspectionContext, InspectionContextType } from './inspection-context';
 
 interface InspectionItem {
   id: number;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActiveLink } from './ActiveLink';
+import { ActiveLink } from './active-link';
 import { Link } from 'react-router-dom';
 import image from '../../assets/logo_placeholder2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

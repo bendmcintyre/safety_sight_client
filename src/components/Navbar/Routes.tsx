@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { LoginForm } from '../users/LoginForm';
-import { RegisterForm } from '../users/RegisterForm';
-import { InspectionHistory } from '../inspection/InspectionHistory';
-import { InspectionForm } from '../inspection/InspectionForm';
-import { ManageInspection } from '../inspection/ManageInspection';
-import { EditInspection } from '../inspection/EditInspection';
-import { CreateInspection } from '../inspection/CreateInspection';
-import { ManageUsers } from '../users/ManageUsers';
-import { Contact } from '../support/Contact';
-import { InspectionDetail } from '../inspection/InspectionDetail';
-import { Profile } from '../users/Profile';
-import { Dashboard } from '../dashboard/Dashboard'
+import { LoginForm } from '../users/login';
+import { RegisterForm } from '../users/register';
+import { InspectionHistory } from '../inspection/inspection-history';
+import { InspectionForm } from '../inspection/inspection-form';
+import { ManageInspection } from '../inspection/manage-inspection';
+import { EditInspection } from '../inspection/edit-inspection';
+import { CreateInspection } from '../inspection/create-inspection';
+import { ManageUsers } from '../users/manage-users';
+import { Contact } from '../support/contact';
+import { InspectionDetail } from '../inspection/inspection-detail';
+import { Profile } from '../users/profile';
+import { Dashboard } from '../dashboard/dashboard';
 import { Inspection } from '../inspection/Inspection';
-import { Settings } from '../support/Settings';
+import { Settings } from '../support/settings';
 
 const RoutesComponent: React.FC = () => {
   return (

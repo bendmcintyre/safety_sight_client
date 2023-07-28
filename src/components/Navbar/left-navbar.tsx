@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActiveLink } from './ActiveLink';
+import { ActiveLink } from './active-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSearch, faHistory, faUserCog, faCog, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 

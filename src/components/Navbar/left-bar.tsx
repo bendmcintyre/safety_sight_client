@@ -1,5 +1,5 @@
 import React from 'react';
-import { LeftNavbar } from './LeftNavbar';
+import { LeftNavbar } from './left-navbar';
 
 const LeftBar: React.FC = () => {
   return (
