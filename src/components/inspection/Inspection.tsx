@@ -18,7 +18,7 @@ const Inspection: React.FC = () => {
       ) : (
         <div>
           {inspection.map((inspection) => (
-            <Link to={`/inspection-form/${inspection.id}`} className="block bg-white shadow rounded mb-4 p-4">
+            <Link to={`/inspection-form/${inspection.id}`} className="block dark:bg-dms dark:text-white dark:hover:bg-secondary shadow-inner rounded mb-4 p-4">
               <div className="flex justify-between">
                 <h2 className="mr-2">{inspection.name}</h2>
               </div>

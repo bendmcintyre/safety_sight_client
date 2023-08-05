@@ -4,16 +4,16 @@ import { LoginForm } from '../users/login';
 import { RegisterForm } from '../users/register';
 import { InspectionHistory } from '../inspection/inspection-history';
 import { InspectionForm } from '../inspection/inspection-form';
-import { ManageInspection } from '../inspection/manage-inspection';
 import { EditInspection } from '../inspection/edit-inspection';
-import { CreateInspection } from '../inspection/create-inspection';
+import { CreateInspection } from '../inspection/create-inspection'; 
 import { ManageUsers } from '../users/manage-users';
 import { Contact } from '../support/contact';
 import { InspectionDetail } from '../inspection/inspection-detail';
 import { Profile } from '../users/profile';
 import { Dashboard } from '../dashboard/dashboard';
-import { Inspection } from '../inspection/Inspection';
+import { Inspection } from '../inspection/inspection';
 import { Settings } from '../support/settings';
+import { ManageInspection } from '../inspection/manage-inspection';
 
 const RoutesComponent: React.FC = () => {
   return (

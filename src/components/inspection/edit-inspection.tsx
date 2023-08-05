@@ -14,6 +14,8 @@ const EditInspection: React.FC = () => {
   const [itemName, setItemName] = useState('');
   const [itemType, setItemType] = useState('text');
 
+  
+
   useEffect(() => {
     const inspection = getInspectionById(Number(id));
     if (inspection && inspection.questions) {
@@ -28,14 +30,18 @@ const EditInspection: React.FC = () => {
   };
 
   const deleteInspectionItem = () => {
-    setInspectionItems(prevItems => [...prevItems]);
+    setInspectionItems(prevItems => [...prevItems, { name: itemName, type: itemType as 'text' | 'date' | 'pass/fail' }]);
     setItemName(''); 
   }
 
   return (
-    <div className="bg-void p-4 flex flex-wrap-reverse">
-      <h2 className="text-white text-lg w-60 h-1/2 font-bold mb-4 ">Edit Inspection</h2>
-      <div className="mb-4">
+    
+    <div className="p-4 grid grid-cols-2 rounded-lg bg-primary">
+     
+      <h2 className="text-white text-3xl text-center shadow-inner rounded-lg bg-primary dark:bg-dms w-80 h-12 font-bold mb-4 col-span-2">Edit Inspection</h2>
+      
+      <div className="mb-4 col-span-2">
+        
         <input 
           type="text" 
           value={itemName} 
@@ -59,8 +65,8 @@ const EditInspection: React.FC = () => {
       {inspectionItems.map((item, index) => (
         <div key={index} className="text-white mb-4 w-60 h-1/2">
           <label className="block mb-2 ">{item.name}</label>
-          {item.type === 'text' && <input type="text" className="block w-full m-4 p-4 shadow rounded bg-secondary text-white" />}
-          {item.type === 'date' && <input type="date" className="block w-full m-4 p-4 shadow rounded bg-secondary text-white" />}
+          {item.type === 'text' && <input type="text" className="block w-full m-4 p-4 shadow rounded bg-secondary dark:bg-dms text-white" />}
+          {item.type === 'date' && <input type="date" className="block w-full m-4 p-4 shadow rounded bg-secondary dark:bg-dms text-white" />}
           {item.type === 'pass/fail' && (
             <div className="flex items-center space-x-2 w-60 h-1/2">
               <button className="bg-green-500 text-white rounded m-4 p-4">Pass</button>

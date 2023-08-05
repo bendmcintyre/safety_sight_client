@@ -42,9 +42,10 @@ const CreateInspection: React.FC = () => {
   };
 
   return (
-    <div className="m-10 p-10 rounded-lg items-center shadow-lg bg-primary ">
-      <h1 className="text-white text-lg grid-start-2 font-bold mb-4 ">Create Inspection</h1>
-      <form onSubmit={createInspection} className="grid grid-cols-1 grid-rows-6">
+    <div className="m-10 p-10 rounded-lg grid grid-cols-1 justify-items-center shadow-lg bg-primary dark:bg-dms">
+      <h1 className="text-white text-xl font-bold mb-4 shadow-inner">Create Inspection</h1>
+      <form onSubmit={createInspection} className="grid grid-cols-2 grid-rows-12">
+        <div className="grid grid-cols-1">
         <label className="text-white font-bold block mb-2 ">
           Inspection Name:
           <input
@@ -52,22 +53,16 @@ const CreateInspection: React.FC = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="block w-60 h-1/2 border rounded p-2 text-primary"
+            className="block w-60 h-1/2 border rounded p-2 text-primary dark:bg-secondary dark:text-white"
           />
         </label>
-        {questions.map((question, index) => (
-          <div key={index}>
-            <p className="text-white">Question: {question.name}</p>
-            <p className="text-white">Type: {question.type}</p>
-          </div>
-        ))}
         <label className="text-white font-bold block mb-2 ">
           Add Field:
           <input
             type="text"
             value={newQuestionName}
             onChange={(e) => setNewQuestionName(e.target.value)}
-            className="block w-60 h-1/2 border rounded p-2 text-primary"
+            className="block w-60 h-1/2 border rounded p-2 text-primary dark:bg-secondary dark:text-white"
           />
         </label>
         <select
@@ -98,6 +93,16 @@ const CreateInspection: React.FC = () => {
         <button type="submit" className="bg-submit text-white hover:bg-secondary w-60 h-100 items-center py-2 px-4 rounded shadow-background mt-2">
           Create Inspection
         </button>
+        </div>
+        <div>
+        {questions.map((question, index) => (
+          <div key={index} className="inline-grid rounded shadow-inner text-center text-white dark:bg-secondary dark:text-white">
+            <p className="">Question: {question.name}</p>
+            <p className="">Type: {question.type}</p>
+          </div>
+        ))}
+        </div>
+        
       </form>
     </div>
   );

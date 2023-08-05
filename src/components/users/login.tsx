@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ForgotPasswordForm } from './forgot-password'; // Import the ForgotPasswordForm component
+import { LeftNavbar } from '../navbar/left-navbar';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -23,20 +24,21 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="bg-background flex flex-col justify-center items-center h-screen shadow-background">
+    <div className="bg-primary dark:bg-dmbg flex flex-col justify-center items-center h-screen shadow-inner shadow-background">
+      <LeftNavbar />
       <form 
-        className="bg-secondary rounded px-8 pt-6 pb-8 mb-4 shadow-background"
+        className="bg-secondary dark:bg-primary rounded px-8 pt-6 pb-8 mb-4 shadow-inner shadow-background"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label 
-            className="block text-primary text-sm font-bold mb-2"
+            className="block text-white text-sm font-bold mb-2"
             htmlFor="username"
           >
             Username
           </label>
           <input
-            className="  border rounded w-full py-2 px-3 text-gray-700 leading-tight shadow-background "
+            className="  border rounded w-full py-2 px-3 text-secondary leading-tight shadow-inner shadow-background "
             type="text"
             id="username"
             value={username}
@@ -46,13 +48,13 @@ const LoginForm = () => {
         </div>
         <div className="mb-6">
           <label 
-            className="block text-primary text-sm font-bold mb-2"
+            className="block text-white text-sm font-bold mb-2"
             htmlFor="password"
           >
             Password
           </label>
           <input 
-            className=" border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight shadow-background"
+            className=" border rounded w-full py-2 px-3 text-secondary mb-3 leading-tight shadow-inner shadow-background"
             type="password"
             id="password"
             value={password}
@@ -62,13 +64,13 @@ const LoginForm = () => {
         </div>
         <div className="flex items-center justify-between">
           <button 
-            className="bg-primary text-white font-bold text-sm py-2 px-4 rounded hover:bg-secondary shadow-background"
+            className="bg-primary dark:bg-secondary text-white font-bold text-sm py-2 px-4 rounded hover:bg-secondary dark:hover:bg-dms shadow-inner shadow-background"
             type="submit"
           >
             Sign In
           </button>
           <button 
-            className="text-primary hover:text-background text-xs focus:outline-none"
+            className="text-white  hover:text-blue-700 hover:underline  text-xs focus:outline-none"
             type="button"
             onClick={handleForgotPasswordClick} // Call the handleForgotPasswordClick function when "Forgot Password" button is clicked
           >

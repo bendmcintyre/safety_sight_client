@@ -5,25 +5,25 @@ import { faHome, faSearch, faHistory, faUserCog, faCog, faClipboardList } from '
 
 const LeftNavbar: React.FC = () => {
   return (
-    <div className="rounded mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-secomdary">
-      <div className="w-full h-full bg-primary rounded flex flex-col items-center">
-        <nav className="items-center text-sm space-y-4">
-          <ActiveLink to="/dashboard" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+    <div className="rounded mx-8 grid grid-cols-1 place-items-center bg-primary dark:bg-primary">
+      <div className="w-auto h-full rounded grid grid-cols-1 place-items-center bg-primary dark:bg-primary">
+        <nav className="grid grid-cols-1 place-items-center text-sm space-y-4 bg-primary dark:bg-primary">
+          <ActiveLink to="/dashboard" className="text-white text-center hover:bg-secondary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner shadow-dms">
             <FontAwesomeIcon icon={faHome} />
           </ActiveLink>
-          <ActiveLink to="/inspection" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/inspection" className="text-white text-center hover:bg-secondary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner shadow-dms">
             <FontAwesomeIcon icon={faSearch} />
           </ActiveLink>
-          <ActiveLink to="/inspection-history" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/inspection-history" className="text-white text-center hover:bg-secondary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner shadow-dms">
             <FontAwesomeIcon icon={faHistory} />
           </ActiveLink>
-          <ActiveLink to="/manage-inspection" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/manage-inspection" className="text-white text-center hover:bg-secondary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner shadow-dms">
             <FontAwesomeIcon icon={faClipboardList} />
           </ActiveLink>
-          <ActiveLink to="/manage-users" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/manage-users" className="text-white text-center hover:bg-secondary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner shadow-dms">
             <FontAwesomeIcon icon={faUserCog} />
           </ActiveLink>
-          <ActiveLink to="/settings" className="text-white text-center shadow-background hover:bg-secondary hover:text-white font-bold py-2 px-4 block">
+          <ActiveLink to="/settings" className="text-white text-center hover:border-dms hover:bg-secondary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner shadow-dms ">
             <FontAwesomeIcon icon={faCog} />
           </ActiveLink>
         </nav>

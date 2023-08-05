@@ -37,7 +37,7 @@ const InspectionDetail: React.FC = () => {
     <div><span className="font-bold">Name:</span> {inspection.name}</div>
     {inspection.questions.map((question, index) => (
       <div key={index}>
-        <div><span className="font-bold">{question}:</span> {inspection.answers && inspection.answers[index]}</div>
+        <div><span className="font-bold ">{question}:</span> {inspection.answers && inspection.answers[index]}</div>
       </div>
     ))}
   </div>

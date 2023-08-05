@@ -7,6 +7,8 @@ module.exports = {
         primary: '#182039',
         secondary: '#2e3449',
         accent: '#212b4e',
+        dmbg: '#000000',  // dark mode background
+        dms: '#121212',    // dark mode surface
         pass1: '#3e64ff',
         pass2: '#154D1B',
         passhover: '#278C31',
