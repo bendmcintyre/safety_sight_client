@@ -1,16 +1,15 @@
 import { api } from '../utils/api';
 
 class InspectionService {
-  getInspections() {
+  async getInspections() {
     // Implement logic to fetch inspections via API
-    return api.get('/inspections');
+    return await api.inspections.list();
   }
 
-    createInspection(inspection: any) { // or a more specific type if you have one
+  async createInspection(inspection: any) { // or a more specific type if you have one
     // Implement logic to create new inspection via API
-    return api.post('/inspections', inspection);
-    }
-
+    return await api.inspections.create(inspection);
+  }
 }
 
 export default new InspectionService();

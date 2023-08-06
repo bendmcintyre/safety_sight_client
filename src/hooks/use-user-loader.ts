@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { JWTClient } from '../utils/jwt-client';
 import UserService from '../services/user.service';
-import { useAppStore } from '../contexts/store-context';
+import { useAppStore } from '../store';
 
 
 function useUserLoader() {

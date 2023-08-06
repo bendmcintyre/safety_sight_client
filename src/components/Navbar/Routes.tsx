@@ -36,5 +36,6 @@ const RoutesComponent: React.FC = () => {
   );
 }
 
-export { RoutesComponent };
-
+export { 
+  RoutesComponent,
+};

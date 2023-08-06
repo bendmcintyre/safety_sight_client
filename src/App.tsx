@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { TopBar } from './components/navbar/top-bar';
 
+import { useUserLoader } from './hooks/use-user-loader';
+
+import { TopBar } from './components/navbar/top-bar';
 import { RoutesComponent } from './components/navbar/routes';
 import { InspectionProvider } from './components/inspection/inspection-context';
-
 import './styles.css'; 
 
 const App: React.FC = () => {
+  useUserLoader();
+
   return (
     <InspectionProvider>
       <Router>
@@ -26,5 +29,6 @@ const App: React.FC = () => {
   );
 }
 
-export {App};
-
+export {
+  App,
+};
