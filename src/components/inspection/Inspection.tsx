@@ -11,17 +11,16 @@ const Inspection: React.FC = () => {
   }, [inspection]);
 
   return (
-    <div className="bg-background p-4">
-      <h2 className="text-primary text-lg font-bold mb-4">Inspection</h2>
+    <div className="bg-dms p-4 ">
+      <h2 className="text-dmoncont bg-dmcont text-2xl justify-items-center text-center rounded-lg w-40 font-bold p-4 mb-4">Inspection</h2>
       {inspection.length === 0 ? (
-        <p className="text-primary">No inspection found.</p>
+        <p className="text-dmoncont">No inspection found.</p>
       ) : (
         <div>
           {inspection.map((inspection) => (
-            <Link to={`/inspection-form/${inspection.id}`} className="block dark:bg-dms dark:text-white dark:hover:bg-secondary shadow-inner rounded mb-4 p-4">
-              <div className="flex justify-between">
-                <h2 className="mr-2">{inspection.name}</h2>
-              </div>
+            <Link to={`/inspection-form/${inspection.id}`} className="grid grid-cols-4 dark:bg-dmcont  place-items-center text-lg w-40 dark:text-dmoncont dark:hover:bg-secondary shadow-inner rounded mb-4 p-4">
+                <h2 className="grid grid-rows-4 text-2xl ">{inspection.name}</h2>
+              
             </Link>
           ))}
         </div>

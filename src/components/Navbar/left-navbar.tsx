@@ -5,25 +5,25 @@ import { faHome, faSearch, faHistory, faUserCog, faCog, faClipboardList } from '
 
 const LeftNavbar: React.FC = () => {
   return (
-    <div className="rounded mx-8 grid grid-cols-1 place-items-center bg-primary dark:bg-primary">
-      <div className="w-auto h-full rounded grid grid-cols-1 place-items-center bg-primary dark:bg-primary">
-        <nav className="grid grid-cols-1 place-items-center text-sm space-y-4 bg-primary dark:bg-primary">
-          <ActiveLink to="/dashboard" className="text-white text-center hover:border-dms hover:bg-primary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner hover:shadow-dmbg click:shadow-dmbs">
+    <div className="rounded mx-8 grid grid-cols-1 place-items-center bg-transparent">
+      <div className="w-auto h-full rounded grid grid-cols-1 place-items-center ">
+        <nav className="grid grid-cols-1 place-items-center text-sm space-y-4 ">
+          <ActiveLink to="/dashboard" className="text-white text-center hover:border-dmoutline hover:bg-primary dark:bg-dmseccont dark:hover:bg-dmonsec hover:shadow-dmbg font-bold py-2 px-8 block rounded-full shadow-inner">
             <FontAwesomeIcon icon={faHome} />
           </ActiveLink>
-          <ActiveLink to="/inspection" className="text-white text-center hover:border-dms hover:bg-primary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner hover:shadow-dmbg ">
+          <ActiveLink to="/inspection" className="text-white text-center hover:border-dmoutline hover:bg-primary dark:bg-dmseccont dark:hover:bg-dmonsec hover:shadow-dmbg hover:text-white font-bold py-2 px-7 block rounded-full shadow-inner">
             <FontAwesomeIcon icon={faSearch} />
           </ActiveLink>
-          <ActiveLink to="/inspection-history" className="text-white text-center hover:border-dms hover:bg-primary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner hover:shadow-dmbg ">
+          <ActiveLink to="/inspection-history" className="text-white text-center hover:border-dmoutline hover:bg-primary dark:bg-dmseccont dark:hover:bg-dmonsec hover:shadow-dmbg hover:text-white font-bold py-2 px-6 block rounded-full shadow-inner">
             <FontAwesomeIcon icon={faHistory} />
           </ActiveLink>
-          <ActiveLink to="/manage-inspection" className="text-white text-center hover:border-dms hover:bg-primary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner hover:shadow-dmbg ">
+          <ActiveLink to="/manage-inspection" className="text-white text-center hover:border-dmoutline hover:bg-primary dark:bg-dmseccont dark:hover:bg-dmonsec hover:shadow-dmbg hover:text-white font-bold py-2 px-6 block rounded-full shadow-inner">
             <FontAwesomeIcon icon={faClipboardList} />
           </ActiveLink>
-          <ActiveLink to="/manage-users" className="text-white text-center hover:border-dms hover:bg-primary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner hover:shadow-dmbg ">
+          <ActiveLink to="/manage-users" className="text-white text-center hover:border-dmoutline hover:bg-primary dark:bg-dmseccont dark:hover:bg-dmonsec hover:shadow-dmbg hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner">
             <FontAwesomeIcon icon={faUserCog} />
           </ActiveLink>
-          <ActiveLink to="/settings" className="text-white text-center hover:border-dms hover:bg-primary dark:bg-dms hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner hover:shadow-dmbg ">
+          <ActiveLink to="/settings" className="text-white text-center hover:border-dmoutline hover:bg-primary dark:bg-dmseccont dark:hover:bg-dmonsec hover:shadow-dmbg hover:text-white font-bold py-2 px-4 block rounded-full shadow-inner">
             <FontAwesomeIcon icon={faCog} />
           </ActiveLink>
         </nav>

@@ -1,9 +1,12 @@
 import React from 'react';
-import { LeftNavbar } from './left-navbar';
+import { LeftNavbar } from '../navbar/left-navbar';
 
 const LeftBar: React.FC = () => {
   return (
-    <div className="bg-primary dark:bg-primary rounded w-1/2  shadow-inner">
+
+    <div className="bg-primary dark:bg-dmbg rounded w-1/2  shadow-inner">
+      
+
       
       <LeftNavbar />
       

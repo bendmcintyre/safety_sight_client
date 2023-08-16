@@ -29,10 +29,11 @@ const EditInspection: React.FC = () => {
     setItemName('');
   };
 
-  const deleteInspectionItem = () => {
-    setInspectionItems(prevItems => [...prevItems, { name: itemName, type: itemType as 'text' | 'date' | 'pass/fail' }]);
-    setItemName(''); 
-  }
+  const deleteInspectionItem = (index: number) => {
+    const newItems = [...inspectionItems];
+    newItems.splice(index, 1);
+    setInspectionItems(newItems);
+  };
 
   return (
     
@@ -46,21 +47,26 @@ const EditInspection: React.FC = () => {
           type="text" 
           value={itemName} 
           onChange={e => setItemName(e.target.value)} 
-          placeholder="Enter item name" 
-          className="border bg-secondary text-white rounded p-2 w-60 "
+          placeholder="Enter Item Name" 
+          className="peer h-full w-64 border-b border-blue-gray-200 bg-transparent pt-4 pb-1 mb-4 mr-4 font-normal text-white outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-pink-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" 
         />
         <select 
           value={itemType} 
           onChange={e => setItemType(e.target.value)} 
-          className="border bg-secondary text-white rounded p-2 ml-2 "
+          className="peer rounded border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 empty:!bg-red-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
         >
           <option value="text">Text</option>
           <option value="date">Date</option>
           <option value="pass/fail">Pass/Fail</option>
         </select>
-        <button onClick={addInspectionItem} className="bg-blue-500 text-white rounded w-40  p-2 ml-2">Add</button>
-        <button onClick={deleteInspectionItem} className="bg-red-500 text-white rounded w-40  p-2 ml-2">Delete</button>
+        <button onClick={addInspectionItem} className="bg-submit text-white rounded w-40  p-2 ml-2">Add</button>
         
+        <button
+         onClick={() => deleteInspectionItem(0)}
+          className="bg-error text-white dark:bg-dmerrorcont dark:text-dmerroroncont rounded w-40 p-2 ml-2"
+        >
+          Delete
+        </button>
       </div>
       {inspectionItems.map((item, index) => (
         <div key={index} className="text-white mb-4 w-60 h-1/2">

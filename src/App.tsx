@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { useUserLoader } from './hooks/use-user-loader';
 
 import { TopBar } from './components/navbar/top-bar';
-import { RoutesComponent } from './components/navbar/routes';
+import { RoutesComponent } from './components/navbar/Routes';
 import { InspectionProvider } from './components/inspection/inspection-context';
 import './styles.css'; 
 

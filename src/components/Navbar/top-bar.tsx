@@ -5,7 +5,7 @@ import { TopNavbar } from './top-navbar';
 const TopBar: React.FC = () => {
   return (
     
-    <header className="flex justify-end rounded-xl bg-secondary dark:bg-dms shadow-inner mx-8 mb-8">
+    <header className="flex justify-end rounded-xl bg-secondary dark:bg-dmseccont dark:text-dmonseccont shadow-inner mx-8 mb-8">
       
       <TopNavbar />
     </header>

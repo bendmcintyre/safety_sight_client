@@ -36,12 +36,12 @@ const RegisterForm = () => {
   return (
     <div className=" bg-background flex flex-col justify-center items-center h-screen">
       <form
-        className="bg-secondary shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-secondary dark:bg-dmonsec shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label
-            className="block text-primary text-sm font-bold mb-2"
+            className="block text-primary dark:text-dmonseccont text-sm font-bold mb-2"
             htmlFor="name"
           >
             Name
@@ -57,7 +57,7 @@ const RegisterForm = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-primary text-sm font-bold mb-2"
+            className="block text-primary dark:text-dmonseccont text-sm font-bold mb-2"
             htmlFor="username"
           >
             Username
@@ -73,7 +73,7 @@ const RegisterForm = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-primary text-sm font-bold mb-2"
+            className="block text-primary dark:text-dmonseccont text-sm font-bold mb-2"
             htmlFor="email"
           >
             Email
@@ -91,7 +91,7 @@ const RegisterForm = () => {
         </div>
         <div className="mb-6">
           <label
-            className="block text-primary text-sm font-bold mb-2"
+            className="block text-primary dark:text-dmonseccont text-sm font-bold mb-2"
             htmlFor="password"
           >
             Password
@@ -107,7 +107,7 @@ const RegisterForm = () => {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-primary dark:bg-dmseccont hover:bg-blue-700 dark:hover:bg-dmonsec text-white dark:text-dmonseccont dark:hover:text-dmseccont font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Sign Up

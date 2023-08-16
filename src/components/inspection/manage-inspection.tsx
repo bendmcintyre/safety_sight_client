@@ -2,6 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { InspectionContext } from './inspection-context';
 
+
+
+
+
 const ManageInspection: React.FC = () => {
   const { inspection, setInspection } = useContext(InspectionContext);
 
@@ -12,24 +16,28 @@ const ManageInspection: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary border-dmbg hover:shadow-dms shadow-primary border  shadow-inner p-4">
-      <h2 className="text-white text-lg font-bold mb-4">Manage Inspection</h2>
-      <Link to="/create-inspection" className="block bg-secondary shadow-inner rounded-xl mb-4 p-4 dark:bg-dms dark:text-white dark:hover:bg-secondary ">
-        Create New Inspection
-      </Link>
+    <div className="bg-primary text-center dark:bg-dmseccont w-full h-full rounded-sm shadow-inner dark:shadow-dms "><h2 className=" w-full p-4 mb-4 bg-dmonsec text-dmonseccont text-xl font-bold m-auto">Manage Inspection</h2>
+    
+    <div className="p-4 grid grid-cols-2 ">
+    
+    
+      
       {inspection.length === 0 ? (
-        <p className="text-white">No inspections have been created yet.</p>
+        <p className="text-white text-center">No inspections have been created yet.</p>
       ) : (
         inspection.map((inspection) => (
-          <div key={inspection.id} className="grid grid-cols-1 grid-rows-3  dark:bg-dms dark:text-white dark:hover:bg-bmbg shadow-inner hover:shadow-dms shadow-bgs rounded mb-4 p-4">
-            <h2 className="mr-2">{inspection.name}</h2>
-            <Link to={`/manage-inspection/edit/${inspection.id}`} className="bg-blue-500 w-32 text-white text-center shadow-inner rounded-sm  p-2 ml-2 mb-4">Edit</Link>
-            <button onClick={() => deleteInspection(inspection.id)} className="bg-red-500 w-32 text-white text-center shadow-inner rounded-sm p-2 ml-2 mb-4">Delete</button>
-            
+          <div key={inspection.id} className="grid grid-cols-1 grid-rows-1  w-48 m-auto p-8 text-lg shadow-inner hover:shadow border dark:bg-dmonsec dark:text-dmonseccont dark:border-dmonseccont dark:shadow-dms dark:hover:shadow-dms dark:hover:bg-dmseccont dark:hover:text-dmons rounded mb-4">
+            <h2 className="m-auto text-center mb-4  font-bold ">{inspection.name}</h2>
+            <div className="grid grid- place-items-center">
+            <Link to={`/manage-inspection/edit/${inspection.id}`} className="bg-edit w-32 text-white text-center text-md shadow hover:bg-edithover rounded-sm p-2  mb-4">Edit</Link>
+            <button onClick={() => deleteInspection(inspection.id)} className="bg-dmerrorcont w-32 text-white text-center text-md shadow hover:bg-dmonerror rounded-sm p-2  mb-4">Delete</button>
+            </div>
           </div>
         ))
       )}
+      </div>
     </div>
+    
   );
 };
 
