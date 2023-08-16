@@ -23,6 +23,7 @@
     "axios": "^1.4.0",
     "browserify-zlib": "^0.2.0",
     "daisyui": "^3.5.1",
+    "dayjs": "^1.11.9",
     "jwt-decode": "^3.1.2",
     "next": "^13.4.11",
     "postcss": "^8.4.27",
