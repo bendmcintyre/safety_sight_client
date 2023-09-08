@@ -1,34 +1,50 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { lazy, createContext, useState, useEffect } from 'react';
+import { themeChange } from 'theme-change';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
-import { useUserLoader } from './hooks/use-user-loader';
+import { AppRouter } from './app/components/app-router';
 
-import { TopBar } from './components/navbar/top-bar';
-import { RoutesComponent } from './components/navbar/routes';
-import { InspectionProvider } from './components/inspection/inspection-context';
-import './styles.css'; 
+// attach axios to the window object
+// so it can be used globally
+// for example in the axios interceptors
+(window as any).axios = axios;
 
-const App: React.FC = () => {
+// TODO: Refactor/repuropse this loader
+import { useUserLoader } from './app/hooks/use-user-loader';
+
+import './styles.css';
+
+export const App: React.FC = () => {
   useUserLoader();
 
+  //const { user } = useSelector((state: any) => state.user);
+  //const isLoggedIn = new Function('return ' + user)();
+
+  //const navTo = user ? '/app/welcome' : '/login';
+
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
   return (
-    <InspectionProvider>
-      <Router>
-        <div className="m-10 p-10 rounded-lg shadow-lg bg-primary dark:bg-dmbg">
-          <TopBar />
-          
-          <div className="grid grid-cols-12">
-            
-            <div className="col-span-10">
-              <RoutesComponent />
-            </div>
-          </div>
-        </div>
-      </Router>
-    </InspectionProvider>
+  <>
+    {/*
+      <div>
+        <h1>isLoggedIn: {JSON.stringify(isLoggedIn)}</h1>
+        <h1>user: {JSON.stringify(user)}</h1>
+        <h1>navTo: {JSON.stringify(navTo)}</h1>
+      </div>
+      */}
+      <AppRouter />
+      {/* 
+    <Router>
+      <Routes>
+        <Route path="/app/*" element={<Layout />} />
+        <Route path="*" element={<Navigate to={navTo} replace />}/>
+      </Routes>
+    </Router>
+Place new routes over this */}
+    </>
   );
 }
-
-export {
-  App,
-};

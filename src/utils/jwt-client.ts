@@ -6,7 +6,7 @@ interface IDecodedToken {
   email: string;
 }
 
-class JWTClient {
+export class JWTClient {
   private tokenName: string;
 
   constructor(tokenName: string = 'jwt_token') {
@@ -48,8 +48,4 @@ class JWTClient {
 
     return null;
   }
-}
-
-export {
-  JWTClient,
 }

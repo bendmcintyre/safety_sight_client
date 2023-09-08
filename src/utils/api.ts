@@ -3,7 +3,6 @@
 //   api.user.create({ foo: 'asdf123', bar: '123qwerty' })
 //   api.user.find(123)
 //   api.inspections.list()
-import axios, { AxiosHeaders } from 'axios';
 import { ApiService } from '../services/api.service';
 
 // ----------------------------------------------
